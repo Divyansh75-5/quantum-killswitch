@@ -1,4 +1,4 @@
-const BASE_URL = "https://quantum-killswitch-production.up.railway.app";
+const BASE = "https://quantum-killswitch-production.up.railway.app";
 
 // Fetch all scenarios
 export async function fetchScenarios() {
