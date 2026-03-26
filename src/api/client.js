@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://quantum-killswitch-1.onrender.com";
 
 // Fetch all scenarios
 export async function fetchScenarios() {
