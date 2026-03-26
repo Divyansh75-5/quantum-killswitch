@@ -13,6 +13,15 @@ export async function makeDecision(payload) {
     body: JSON.stringify(payload),
   });
   if (!res.ok) throw new Error("Decision API failed");
+<<<<<<< Updated upstream
+=======
+  return res.json();
+}
+
+export async function fetchLog() {
+  const res = await fetch(`${BASE}/api/log`);
+  if (!res.ok) throw new Error("Failed to fetch log");
+>>>>>>> Stashed changes
   return res.json();
 }
 
