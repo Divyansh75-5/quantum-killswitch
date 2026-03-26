@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || "https://quantum-killswitch-production.up.railway.app";
+const BASE = "https://quantum-killswitch-production.up.railway.app";
 
 export async function fetchScenarios() {
   const res = await fetch(`${BASE}/api/scenarios`);
