@@ -1,29 +1,23 @@
-const BASE = "https://quantum-killswitch-production.up.railway.app";
+const BASE = import.meta.env.VITE_API_URL || "https://quantum-killswitch-production.up.railway.app";
 
-// Fetch all scenarios
 export async function fetchScenarios() {
-  const res = await fetch(`${BASE_URL}/api/scenarios`);
-  
-  if (!res.ok) {
-    throw new Error("Failed to fetch scenarios");
-  }
-
+  const res = await fetch(`${BASE}/api/scenarios`);
+  if (!res.ok) throw new Error("Failed to fetch scenarios");
   return res.json();
 }
 
-// Send decision request
-export async function makeDecision(data) {
-  const res = await fetch(`${BASE_URL}/api/decide`, {
+export async function makeDecision(payload) {
+  const res = await fetch(`${BASE}/api/decide`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
   });
+  if (!res.ok) throw new Error("Decision API failed");
+  return res.json();
+}
 
-  if (!res.ok) {
-    throw new Error("Decision request failed");
-  }
-
+export async function fetchLog() {
+  const res = await fetch(`${BASE}/api/log`);
+  if (!res.ok) throw new Error("Failed to fetch log");
   return res.json();
 }
